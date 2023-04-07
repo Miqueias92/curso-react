@@ -1,7 +1,9 @@
+import AnotherComponent from "./AnotherComponent";
+
 function FirstComponent() {
     // any comment
     const name = "Miqueias";
-    
+
     return (
         <div className="first-component">
             {/* any comment in jsx */}
@@ -12,6 +14,7 @@ function FirstComponent() {
             {2 + 2}
 
             <p>Name: {name}</p>
+            <AnotherComponent/>
         </div>
     )
 }
