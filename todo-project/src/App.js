@@ -7,6 +7,7 @@ import Hooks from './components/Hooks';
 import List from './components/List';
 import RenderCond from './components/RenderCond';
 import Fragment from './components/Fragment';
+import Container from './components/Container';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
       <List/>
       <RenderCond x={2} y={10}/>
       <Fragment/>
+      <Container>
+        <h1>this is the child of the container</h1>
+      </Container>
     </div>
   );
 }
