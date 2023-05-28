@@ -62,6 +62,22 @@ function App() {
     setTodos((prevState) => prevState.filter((todo) => todo.id !== id))
   }
 
+  const handleUpdateStatus = async (todo) => {
+    todo.done = !todo.done;
+
+    const updatedTodo = await fetch(API + `/todos/${todo.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(todo),
+      headers: {
+        'Content-Type': 'application/json',
+      } 
+    })
+
+    setTodos((prevState) => 
+      prevState.map((todo) => (todo.id === updatedTodo.id ? todo = updatedTodo : todo))
+    )
+  }
+
   if (loading) {
     return <p>Carregando</p>
   }
@@ -107,7 +123,7 @@ function App() {
             <h3 className={todo.done ? "todo-done" : ""}>{todo.title}</h3>
             <p>Duração: {todo.time}</p>
             <div className="actions">
-              <span>
+              <span onClick={() => handleUpdateStatus(todo)}>
                 {!todo.done ? <BsBookmarkCheck/> : <BsBookmarkCheckFill/>}
               </span>
               <BsTrash onClick={()=> handleDelete(todo.id)}/>
