@@ -1,10 +1,3 @@
 {
-  "todos": [
-    {
-      "id": 0.9230761230029163,
-      "title": "Estudar",
-      "time": "2",
-      "done": false
-    }
-  ]
+  "todos": []
 }
